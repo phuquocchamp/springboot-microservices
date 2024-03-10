@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/v1/api/departments")
+@RequestMapping("api/departments")
 public class DepartmentController {
     private DepartmentService departmentService;
 
@@ -20,7 +20,7 @@ public class DepartmentController {
         return new ResponseEntity<>(departmentService.saveDepartment(departmentDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{departmentCode}")
+    @GetMapping("{departmentCode}")
     public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable("departmentCode") String departmentCode){
         return new ResponseEntity<>(departmentService.getDepartment(departmentCode), HttpStatus.OK);
     }
