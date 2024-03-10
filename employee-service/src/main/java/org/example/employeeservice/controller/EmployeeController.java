@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/v1/api/employees")
+@RequestMapping("api/employees")
 public class EmployeeController {
     private EmployeeService employeeService;
 
@@ -20,7 +20,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.saveEmployee(employeeDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{employeeId}")
+    @GetMapping("{employeeId}")
     public ResponseEntity<APIResponseDto> getEmployee(@PathVariable("employeeId") Long employeeId){
         return new ResponseEntity<>(employeeService.getEmployeeById(employeeId), HttpStatus.OK);
     }

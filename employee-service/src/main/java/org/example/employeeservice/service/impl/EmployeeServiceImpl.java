@@ -37,12 +37,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 () -> new ResourceNotFoundException("NOT FOUND EMPLOYEE WITH ID: " + employeeId)
         );
 
-//        DepartmentDto departmentDto = webClient.get()
-//                .uri("http://localhost:8080/v1/api/departments/" + retrieveEmployee.getDepartmentCode())
-//                .retrieve()
-//                .bodyToMono(DepartmentDto.class)
-//                .block();
-
         DepartmentDto departmentDto = apiClient.getDepartment(retrieveEmployee.getDepartmentCode());
 
 
